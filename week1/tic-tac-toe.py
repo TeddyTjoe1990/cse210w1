@@ -12,17 +12,17 @@
 def main():
   board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   play_game = True
-  answer = input("Begin the tic tac toe game? (y/n): ")
+  answer = input("Start tic tac toe game? (y/n): ")
   show_board(board)
   while play_game:
     if answer == "y" or answer == "Y" or answer == "yes":
       print ("Let's play!")
+      #show_board(board)
       ask_position(board)
-      
+      #show_board(board)
       if check_winner(board) or check_winner(board) == False:
         play_game = False
         break
-      
     else:
       print("Thank you!")
       play_game = False
@@ -40,20 +40,18 @@ def show_board(board):
 def ask_position(board):
   for i in range(9):
     if (i % 2) == 0:
-      position = int(input("Entry position for x, from 1-9 : "))
+      position = int(input("Input position for x, from 1-9 : "))
       board[position - 1] = "x"
       show_board(board)
       if check_winner(board):
-        print("\n")
         print("Good game. Thanks for playing!")
         break
       
     elif (i % 2)!=0:
-      position = int(input("Entry position for o, from 1-9 : "))
+      position = int(input("Input position for o, from 1-9 : "))
       board[position - 1] = "o"
       show_board(board)
       if check_winner(board):
-        print("\n")
         print("Good game. Thanks for playing!")
         break
 
@@ -70,4 +68,14 @@ def check_winner(board):
     return True
   elif board[1] == board[4] == board[7] == x or board[1] == board[4] == board[7] == o:
     return True
-  elif 
+  elif board[2] == board[5] == board[8] == x or board[2] == board[5] == board[8] == o:
+    return True
+  elif board[0] == board[4] == board[8] == x or board[0] == board[4] == board[8] == o:
+    return True
+  elif board[2] == board[4] == board[6] == x or board[2] == board[4] == board[6] == o:
+    return True
+  else:
+    return False
+  
+if __name__ == "__main__":
+  main()
