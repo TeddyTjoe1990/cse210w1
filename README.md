@@ -1,2 +1,2 @@
 # cse210
-Programming with classes
+Introduction to Programming with classes
